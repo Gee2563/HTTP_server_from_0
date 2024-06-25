@@ -25,6 +25,7 @@ class HttpResponse:
         status_line = f'{self.http_version} {self.status_code} {self._get_reason_code()}'
         header = (CRLF).join(f"{key}: {self.headers[key]}" for key in self.headers)
         response = f"{status_line}{CRLF}{header}{CRLF}{CRLF}"
+        print(response)
         if self.body:
             response += self.body
         return response
